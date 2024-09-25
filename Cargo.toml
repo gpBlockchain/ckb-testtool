@@ -26,7 +26,7 @@ ckb-crypto = {git = "https://github.com/libraries/ckb.git",branch = "disable_isa
 ckb-resource = {git = "https://github.com/libraries/ckb.git",branch = "disable_isa_a",package="ckb-resource"}
 ckb-verification = {git = "https://github.com/libraries/ckb.git",branch = "disable_isa_a",package="ckb-verification"}
 ckb-traits = {git = "https://github.com/libraries/ckb.git",branch = "disable_isa_a",package="ckb-traits"}
-ckb-mock-tx-types = {git = "https://github.com/nervosnetwork/ckb-standalone-debugger.git",branch = "develop",package="ckb-mock-tx-types"}
+ckb-mock-tx-types = {git = "https://github.com/gpBlockchain/ckb-standalone-debugger.git",branch = "new_spawn",package="ckb-mock-tx-types"}
 libloading = { version = "0.8.4", optional = true }
 serde_json = { version = "1.0", optional = true }
 faster-hex = "0.6.1"
