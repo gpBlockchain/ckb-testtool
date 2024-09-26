@@ -37,9 +37,9 @@ pub fn random_type_id_script() -> Script {
     let args = random_hash().as_bytes();
     debug_assert_eq!(args.len(), 32);
     Script::new_builder()
-        .code_hash(TYPE_ID_CODE_HASH.pack())
-        .hash_type(ScriptHashType::Type.into())
-        .args(args.pack())
+        .code_hash(TYPE_ID_CODE_HASH)
+        .hash_type(ScriptHashType::Type)
+        .args(args)
         .build()
 }
 
@@ -127,7 +127,7 @@ impl Context {
             let occupied_capacity = cell
                 .occupied_capacity(Capacity::bytes(data.len()).expect("data occupied capacity"))
                 .expect("cell capacity");
-            cell.as_builder().capacity(occupied_capacity.pack()).build()
+            cell.as_builder().capacity(occupied_capacity).build()
         };
         self.cells.insert(out_point.clone(), (cell, data));
         self.cells_by_data_hash.insert(data_hash, out_point.clone());
@@ -252,8 +252,8 @@ impl Context {
         Some(
             Script::new_builder()
                 .code_hash(code_hash)
-                .hash_type(hash_type.into())
-                .args(args.pack())
+                .hash_type(hash_type)
+                .args(args)
                 .build(),
         )
     }
@@ -279,7 +279,7 @@ impl Context {
 
         CellDep::new_builder()
             .out_point(out_point)
-            .dep_type(DepType::Code.into())
+            .dep_type(DepType::Code)
             .build()
     }
 
@@ -318,7 +318,7 @@ impl Context {
 
         tx.as_advanced_builder()
             .set_cell_deps(Vec::new())
-            .cell_deps(cell_deps.pack())
+            .cell_deps(cell_deps)
             .build()
     }
 
@@ -418,7 +418,7 @@ impl Context {
                 ckb2023: CKB2023::new_dev_default(),
             })
             .build();
-        let tip = HeaderBuilder::default().number(0.pack()).build();
+        let tip = HeaderBuilder::default().number(0).build();
         let tx_verify_env = TxVerifyEnv::new_submit(&tip);
         let mut verifier = TransactionScriptsVerifier::new(
             Arc::new(resolved_tx),
@@ -588,7 +588,7 @@ impl Context {
             cell_deps.push(MockCellDep {
                 cell_dep: CellDepBuilder::default()
                     .out_point(dep.out_point.clone())
-                    .dep_type(DepType::Code.into())
+                    .dep_type(DepType::Code)
                     .build(),
                 output: dep.cell_output.clone(),
                 data: dep.mem_cell_data.clone().unwrap(),
@@ -599,7 +599,7 @@ impl Context {
             cell_deps.push(MockCellDep {
                 cell_dep: CellDepBuilder::default()
                     .out_point(dep.out_point.clone())
-                    .dep_type(DepType::DepGroup.into())
+                    .dep_type(DepType::DepGroup)
                     .build(),
                 output: dep.cell_output.clone(),
                 data: dep.mem_cell_data.clone().unwrap(),
