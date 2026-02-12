@@ -9,7 +9,7 @@ It provides a `Context` struct for deploying contracts, building transactions, a
 using CKB-VM. Originally migrated from [capsule](https://github.com/nervosnetwork/capsule).
 
 **Rust Edition:** 2024  
-**Rust Toolchain:** 1.85.0 (specified in `rust-toolchain`)
+**Rust Toolchain:** 1.92.0 (specified in `rust-toolchain`)
 
 ## Build & Test Commands
 
@@ -32,7 +32,7 @@ using CKB-VM. Originally migrated from [capsule](https://github.com/nervosnetwor
 ```
 ckb-testtool/
 ├── Cargo.toml              # Main crate manifest
-├── rust-toolchain          # Rust version: 1.85.0
+├── rust-toolchain          # Rust version: 1.92.0
 ├── rustfmt.toml            # Formatting configuration
 ├── src/
 │   ├── lib.rs              # Crate entry with re-exports and docs
